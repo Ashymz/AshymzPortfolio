@@ -19,6 +19,10 @@ const Services = () => {
                             <BsCheckLg className='service__list-icon' />
                             <p>Web Security</p>
                         </li>
+                        <li>
+                            <BsCheckLg className='service__list-icon' />
+                            <p>Mobile Security</p>
+                        </li>
                       
                         <li>
                             <BsCheckLg className='service__list-icon' />
