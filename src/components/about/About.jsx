@@ -40,7 +40,7 @@ const About = () => {
                     </div>
 
                     <p>
-                        Hello, I'm a dedicated Software Developer with 4 years of experience, and I also have 5 years of experience in Cyber Security/ Penetration Tester. My passion lies in crafting secure and efficient software solutions. Alongside my development work, I have a strong focus on cybersecurity, ensuring that the applications I build are not only functional but also secure. I'm actively honing my skills on platforms like PortSwigger, APISEC and TryHackMe, staying up-to-date with the latest trends and techniques in cybersecurity. I thrive on solving complex problems and continuously learning new technologies to stay ahead in the fast-evolving tech landscape.                
+                        Hello, I'm a dedicated Software Developer with 4 years of experience, and I also have over 3 years of experience in Application Security/ API Security. My passion lies in crafting secure and efficient software solutions. Alongside my development work, I have a strong focus on cybersecurity, ensuring that the applications I build are not only functional but also secure. I'm actively honing my skills on platforms like PortSwigger, APISEC and TryHackMe, staying up-to-date with the latest trends and techniques in cybersecurity. I thrive on solving complex problems and continuously learning new technologies to stay ahead in the fast-evolving tech landscape.                
                     </p>
 
                     <a href="#contact" className='btn btn-primary'>Let's Talk</a>

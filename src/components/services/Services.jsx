@@ -19,14 +19,7 @@ const Services = () => {
                             <BsCheckLg className='service__list-icon' />
                             <p>Web Security</p>
                         </li>
-                        <li>
-                            <BsCheckLg className='service__list-icon' />
-                            <p>Computer Networking</p>
-                        </li>
-                        <li>
-                            <BsCheckLg className='service__list-icon' />
-                            <p>Open Source Platform and Network Administration</p>
-                        </li>
+                      
                         <li>
                             <BsCheckLg className='service__list-icon' />
                             <p>Risk Management in Information Systems</p>
@@ -66,18 +59,7 @@ const Services = () => {
                             <BsCheckLg className='service__list-icon' />
                             <p><b>API Security </b>Course Certificate on APISEC Academy</p>
                         </li>
-                        <li>
-                            <BsCheckLg className='service__list-icon' />
-                            <p><b>Pre Security </b>Course on TryHackMe</p>
-                        </li>
-                        <li>
-                            <BsCheckLg className='service__list-icon' />
-                            <p><b>Networking Essentials</b> Course  on Cisco</p>
-                        </li>
-                        <li>
-                            <BsCheckLg className='service__list-icon' />
-                            <p><b>Web Design for Everybody</b> Course on Coursera</p>
-                        </li>
+                     
                         
                         
                         
