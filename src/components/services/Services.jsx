@@ -21,7 +21,7 @@ const Services = () => {
                         </li>
                         <li>
                             <BsCheckLg className='service__list-icon' />
-                            <p>Mobile Security</p>
+                            <p>API Security</p>
                         </li>
                       
                         <li>
@@ -77,14 +77,14 @@ const Services = () => {
                         <h3>Research Platform</h3>
                     </div>
                     <ul className='service__list'>
-                        <li>
+                        {/* <li>
                             <BsCheckLg className='service__list-icon' />
                             <p>Windows 7, 8, 10 and 11</p>
                         </li>
                         <li>
                             <BsCheckLg className='service__list-icon' />
                             <p>Windows Server 2012 r2 </p>
-                        </li>
+                        </li> */}
                         <li>
                             <BsCheckLg className='service__list-icon' />
                             <p>Kali Linux</p>
