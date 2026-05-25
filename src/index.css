@@ -16,10 +16,10 @@
 
     --color-bg: #ffffff;
     --color-bg-variant: #f7f7f7;
-    --color-card: #ffffff;
-    --color-card-hover: #ffffff;
-    --color-card-border: rgba(255, 255, 255, 0.5);
-    --color-card-shadow: 0 0.65rem 2rem rgba(0, 0, 0, 0.28);
+    --color-card: rgba(255, 255, 255, 0.08);
+    --color-card-hover: rgba(255, 255, 255, 0.14);
+    --color-card-border: rgba(255, 255, 255, 0.22);
+    --color-card-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.35);
     --color-primary: #000000;
     --color-primary-variant: rgba(0, 0, 0, 0.12);
     --color-white: #ffffff;
@@ -143,7 +143,7 @@ img {
     object-fit: cover;
 }
 
-/* Solid card surfaces on interactive dark background */
+/* Glass card surfaces on interactive dark background */
 .about__card,
 .experience__container>div,
 .service,
@@ -152,22 +152,40 @@ img {
     background: var(--color-card);
     border: 1px solid var(--color-card-border);
     box-shadow: var(--color-card-shadow);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 .about__card:hover,
 .experience__container>div:hover,
 .service:hover,
-.contact__option:hover {
+.contact__option:hover,
+.portfolio__item--expanded {
     background: var(--color-card-hover);
-    border-color: rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.35);
 }
 
 .about__card h5,
 .about__card small,
-.portfolio__item h3 {
-    color: var(--color-black);
+.experience__container>div h3,
+.experience__container>div h4,
+.portfolio__item h3,
+.service__list p,
+.contact__option h4,
+.contact__option h5 {
+    color: var(--color-text);
+}
+
+.about__card small,
+.experience__container>div small,
+.portfolio__item-desc {
+    color: var(--color-muted);
+}
+
+.experience__details-icon,
+.about__icon,
+.service__list-icon {
+    color: var(--color-white);
 }
 
 /* =================== Media Queries (Medium Device ================*/

@@ -1,5 +1,9 @@
 footer {
-    background: var(--color-primary);
+    background: var(--color-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--color-card-border);
+    box-shadow: 0 -0.5rem 2rem rgba(0, 0, 0, 0.25);
     padding: 3rem 0;
     text-align: center;
     font-size: 0.9rem;
@@ -7,11 +11,12 @@ footer {
 }
 
 footer a {
-    color: var(--color-white);
+    color: var(--color-text);
+    transition: var(--transition);
 }
 
 footer a:hover {
-    color: var(--color-light);
+    color: var(--color-white);
 }
 
 .footer__logo {
@@ -20,6 +25,10 @@ footer a:hover {
     margin-bottom: 1rem;
     margin-top: -1rem;
     display: inline-block;
+    color: var(--color-text);
+}
+
+.footer__logo:hover {
     color: var(--color-white);
 }
 
@@ -31,6 +40,14 @@ footer a:hover {
     margin: 0 auto 2rem;
 }
 
+.permalinks a {
+    color: var(--color-muted);
+}
+
+.permalinks a:hover {
+    color: var(--color-white);
+}
+
 .footer__socials {
     display: flex;
     justify-content: center;
@@ -39,24 +56,34 @@ footer a:hover {
 }
 
 .footer__socials a {
-    background: var(--color-white);
-    color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
     padding: 0.8rem;
     border-radius: 0.7rem;
     display: flex;
-    border: 1px solid transparent;
+    border: 1px solid var(--color-card-border);
     transition: var(--transition);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .footer__socials a:hover {
-    background: transparent;
+    background: var(--color-card-hover);
     color: var(--color-white);
-    border-color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.35);
 }
 
 .footer__copyright {
     margin-bottom: 4.5rem;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--color-muted);
+}
+
+.footer__copyright a {
+    color: var(--color-text);
+}
+
+.footer__copyright a:hover {
+    color: var(--color-white);
 }
 
 /* ================== Media Queries (Medium Devices ==============*/

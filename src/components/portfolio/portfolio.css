@@ -96,7 +96,7 @@
 }
 
 .portfolio__item-desc {
-    color: var(--color-light);
+    color: var(--color-muted);
     font-size: 0.85rem;
     line-height: 1.45;
     margin: 0;

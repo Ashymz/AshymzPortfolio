@@ -5,27 +5,22 @@
 }
 
 .experience__container>div {
-    background: var(--color-bg-variant);
     padding: 2.4rem 5rem;
     border-radius: 2rem;
-    border: 1px solid transparent;
     transition: var(--transition);
 }
 
 .experience__container>div:hover {
-    border-color: var(--color-primary);
     cursor: default;
 }
 
 .experience__container>div h3 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: var(--color-primary);
 }
 
 .experience__content {
     display: grid;
-    /* Khoảng cách giữ 2 column skill */
     grid-template-columns: 1fr 0.75fr;
     row-gap: 1rem;
 }
@@ -35,9 +30,18 @@
     gap: 1rem;
 }
 
+.experience__details h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.experience__details small {
+    font-size: 0.8rem;
+}
+
 .experience__details-icon {
     margin-top: 6px;
-    color: var(--color-primary);
+    flex-shrink: 0;
 }
 
 /* ================== Media Queries (Medium Devices ==============*/
