@@ -1,6 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import About from './components/about/About'
+import InteractiveBackground from './components/background/InteractiveBackground'
 import Contact from './components/contact/Contact'
 import Experience from './components/experience/Experience'
 import Header from './components/header/Header'
@@ -16,18 +16,19 @@ import Testimonials from './components/testimonials/Testimonials'
 */
 const App = () => {
     return (
-        <>
-            <Header />
-            <Nav />
-            <About />
-            <Experience />
-            <Services />
-            <Portfolio />
-
-            <Contact />
-            <Footer />
-            
-        </>
+        <div className="app-layout">
+            <InteractiveBackground />
+            <main className="app-content">
+                <Header />
+                <Nav />
+                <About />
+                <Experience />
+                <Services />
+                <Portfolio />
+                <Contact />
+                <Footer />
+            </main>
+        </div>
     )
 }
 

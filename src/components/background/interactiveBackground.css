@@ -1,0 +1,31 @@
+.interactive-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: #0c0c0c;
+    background-image:
+        radial-gradient(
+            45rem circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.14) 0%,
+            rgba(255, 255, 255, 0.04) 28%,
+            transparent 58%
+        ),
+        radial-gradient(
+            36rem circle at calc(var(--mouse-x) + 18%) calc(var(--mouse-y) - 12%),
+            rgba(160, 160, 160, 0.12) 0%,
+            transparent 55%
+        ),
+        radial-gradient(
+            50rem circle at calc(var(--mouse-x) - 22%) calc(var(--mouse-y) + 18%),
+            rgba(80, 80, 80, 0.18) 0%,
+            transparent 60%
+        ),
+        linear-gradient(145deg, #141414 0%, #0a0a0a 45%, #1a1a1a 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .interactive-bg {
+        background-image: linear-gradient(145deg, #141414 0%, #0a0a0a 45%, #1a1a1a 100%);
+    }
+}

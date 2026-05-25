@@ -10,12 +10,12 @@ import { AiOutlineMail } from 'react-icons/ai';
 const HeaderSocials = () => {
     return (
         <div className='header__socials'>
-            <a href="https://www.linkedin.com/in/sulaimon-taofeek-b652a9371" target="_blank"><BsLinkedin /></a>
-            <a href="https://github.com/stacodinghackwizard/" target="_blank"><FaGithub /></a>
+            <a href="https://www.linkedin.com/in/ashymz/" target="_blank"><BsLinkedin /></a>
+            <a href="https://github.com/ashymz/" target="_blank"><FaGithub /></a>
             {/* <a href="http://nguyenvu1310.github.io/" target="_blank"><ImBlogger2 /></a> */}
-            <a href="https://x.com/stacodinghack/" target="_blank"><BsTwitter /></a> 
+            <a href="https://x.com/ashymzjr/" target="_blank"><BsTwitter /></a> 
             
-            <a href="mailto:sulaimontaofeek76@gmail.com" target="_blank" rel="noopener noreferrer">
+            <a href="mailto:karohunwiashimolowo@gmail.com" target="_blank" rel="noopener noreferrer">
                 <AiOutlineMail/>
             </a>
         </div>

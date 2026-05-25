@@ -18,7 +18,7 @@ import { FaGithub } from 'react-icons/fa'
 const Footer = () => {
     return (
         <footer>
-            <a href="#" className='footer__logo'>SULAIMON</a>
+            <a href="#" className='footer__logo'>Ismail Karohunwi</a>
 
             <ul className='permalinks'>
                 <li><a href="#">Home</a></li>
@@ -31,13 +31,13 @@ const Footer = () => {
             </ul>
 
             <div className="footer__socials">
-                <a href="https://www.facebook.com/"><FaFacebookF /></a>
-                <a href="https://www.youtube.com/channel/UCSOeTCIfWX2wLVpXae-JDbw/"><AiOutlineYoutube /></a >
-                <a href="https://www.linkedin.com/in/sulaimon-taofeek-b652a9371"><FaLinkedinIn /></a>
+                {/* <a href="https://www.facebook.com/"><FaFacebookF /></a> */}
+                <a href="https://www.youtube.com/@ashymz_jr"><AiOutlineYoutube /></a >
+                <a href="https://www.linkedin.com/in/ashymz/"><FaLinkedinIn /></a>
                 
-                <a href="https://github.com/stacodinghackwizard/" target="_blank"><FaGithub /></a>
-                <a href="https://x.com/stacodinghack/" target="_blank"><BsTwitter /></a> 
-                <a href="mailto:sulaimontaofeek76@gmail.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/ashymz/" target="_blank" rel="noreferrer"><FaGithub /></a>
+                <a href="https://x.com/ashymzjr" target="_blank" rel="noreferrer"><BsTwitter /></a> 
+                <a href="mailto:karohunwiashimolowo@gmail.com" target="_blank" rel="noopener noreferrer">
                     <AiOutlineMail/>
                 </a>
                 {/* <a href="http://nguyenvu1310.github.io/"><ImBlogger2 /></a > */}
@@ -45,7 +45,7 @@ const Footer = () => {
             </div >
 
             <div className="footer__copyright">
-                <small>&copy; <b><a href="mailto:sulaimontaofeek76@gmail.com">sulaimontaofeek76</a></b>. All rights reserved.</small>
+                <small>&copy; 2026 <b><a href="mailto:karohunwiashimolowo@gmail.com">Ismail Karohunwi</a></b>. All rights reserved.</small>
             </div>
         </footer >
     )

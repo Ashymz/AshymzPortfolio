@@ -1,119 +1,166 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './portfolio.css'
 import IMG0 from '../../assets/moniflowImg.png'
-import IMG001 from '../../assets/motoka.png'
-import IMG002 from '../../assets/marasoftpay.png'
-import IMG1 from '../../assets/ralioartPortfolio.png'
+import IMG_BIZZA from '../../assets/bizza.png'
+import IMG_AVVA from '../../assets/avva.webp'
 import IMG2 from '../../assets/staPortfolio.png'
-import IMG3 from '../../assets/subssumPortfolioImg.png'
-import IMG4 from '../../assets/motoka.png'
-import IMG5 from '../../assets/ttaPortfolioImg.png'
-import IMG6 from '../../assets/foodkartgold.png'
-import IMG7 from '../../assets/temmiteePortfolio.png'
-import IMG8 from '../../assets/smallecommerce.png'
-import IMG9 from '../../assets/firstecommerce.png'
+import IMG_EXCELMIND from '../../assets/excelmind.png'
+import IMG_MARINER from '../../assets/mariner.png'
+import IMG_DASHNDROP from '../../assets/dashndrop.png'
 import IMG10 from '../../assets/ticketPass.png'
-import IMG11 from '../../assets/chitlink.png'
-import IMG12 from '../../assets/eventandvote.png'
-
-// import IMG11 from '../../assets/oldPortfolio.png'
-import VID01 from '../../assets/ticketPass.png'
+import IMG_BYAIR from '../../assets/byair.png'
+import IMG_PROGRESSIVE from '../../assets/progressivepartners.jpg'
 
 //Do not use the images in production
 const data = [
     {
         id: 1,
         image: IMG0,
-        title: 'At Moniwave, I worked as a Frontend Developer responsible for building and maintaining the user interface of a cloud-based accounting and inventory management system used by businesses across multiple industries. My role focused on creating clean, responsive, and intuitive interfaces that allow users to easily manage financial operations such as expenses, purchases, sales, payments, inventory, and reporting.',
+        title: 'Monicredit - A full-featured digital banking app with wallet transfers, QR payments, biometric login, airtime purchase and bill payments.',
         github: '',
-        demo: 'https://web.moniwave.com/',
+        demo: '',
     },
 
     {
         id: 2,
-        image: IMG001,
-        title: 'I contributed to the Motoka project as a full-stack developer and penetration tester. My work spanned both the frontend and backend, where I implemented features for user authentication, vehicle management, KYC verification, and payment integration. I also conducted penetration testing to identify and resolve security vulnerabilities, ensuring the platforms robustness and data protection. My involvement covered the full development lifecycle, from building user interfaces to designing APIs and securing the application.',
-        github: 'https://github.com/stacodinghackwizard/',
-        demo: 'https://motoka.vercel.app/auth/login',
+        image: IMG_BIZZA,
+        title: 'Bizza - Unleash the Power of Digital Currency',
+        description: `Bizza is a cutting-edge cryptocurrency platform for buying, storing, and selling 150+ cryptocurrencies with 20+ fiat currencies—via bank transfers or credit/debit card.
+
+Key features:
+• Exchange: manage transactions in one place across multiple wallet types
+• Earn crypto: deposit and earn interest on cryptos and stablecoins
+• Instant, secure transactions with no trading fees within the system
+• BizzaPay, Protrader, and BizzaCoin ecosystem`,
+        github: '',
+        demo: 'https://bizza.io/',
     },
 
     {
         id: 3,
-        image: IMG002,
-        title: 'At Marasoftpay, I served as a Penetration Tester for their ERP and fintech platforms, focusing on identifying and validating high-risk security vulnerabilities across multiple modules. I delivered detailed security reports with proof-of-concept attacks, CVSS scoring, impact analysis, and clear remediation steps. I also worked closely with the engineering team to improve secure coding practices and ensure the platform adheres to modern security standards.',
+        image: IMG_AVVA,
+        title: 'AvvA - Personal and travel assistance for aviation professionals',
+        description: `AvvA is a virtual assistant for pilots, cabin crew, and aircraft owners. We organize lodging, ground transportation, dining, errands, shopping, bill pay support, and calendar coordination—so you can focus on flying.
+
+Key features:
+• Travel coordination: hotels, rentals, rides, and itinerary changes
+• Home & personal life: gifts, appointments, deliveries, and reminders
+• Admin & scheduling: expense reports, calendars, and follow-ups
+• Always-on Wingmate support through the AvvA app and web portal`,
         github: '',
-        demo: 'https://dashboard.marasoftpay.live/login/',
+        demo: 'https://avva.aero/',
     },
     {
         id: 4,
-        image: IMG1,
-        title: 'The Ralioarts portfolio website was designed to showcase the creative work of a professional UI/UX designer. Built using Vuejs and hosted on GitHub Pages, the site serves as a sleek, responsive gallery for displaying various design projects.',
-        github: 'https://github.com/stacodinghackwizard/ralioarts',
-        demo: 'https://ralioarts.vercel.app/',
+        image: IMG2,
+        title: 'Genescor - A health consultation app for sickle cell patients enabling online doctor appointments and reducing long hospital queues.',
+        github: '',
+        demo: '',
     },
     {
         id: 5,
-        image: IMG12,
-        title: 'Events and Votes is an event management and voting platform. My role was to perform penetration testing on the site, identify potential security vulnerabilities, and provide detailed documentation and recommendations to improve its security posture.',
-        github: 'https://github.com/stacodinghackwizard/',
-        demo: 'https://eventsandvotes.com.ng/',
+        image: IMG_MARINER,
+        title: 'Mariner App™',
+        description: `Mariner App™ is built for captains, crew, and local maritime communities. Find work, connect with verified local services, and stay organized on the water—without bouncing between apps.
+
+Key features:
+• Dock & local alerts: quick updates and notices that matter when you're moving around harbors
+• Marketplace: list or find gear, parts, boats, jobs, crew, and services
+• Crew messages: chat fast with captains, crew, and businesses`,
+        github: '',
+        demo: '',
     },
     {
         id: 6,
-        image: IMG2,
-        title: 'This Personal Portfolio Website is built with React and deployed on Vercel, showcasing my work, skills, and achievements. Designed to highlight my projects and professional background, the portfolio features an elegant and responsive layout that adapts to various devices.',
-        github: 'https://github.com/stacodinghackwizard/taofeekportfolio',
-        demo: 'https://taofeekportfolio.vercel.app/',
+        image: IMG_EXCELMIND,
+        title: 'Excel Mind (Thelix Holdings) - An LMS mobile platform for structured online learning built as a contract engagement with a cross-functional development team.',
+        github: '',
+        demo: 'https://excelmind.org/',
     },
     {
         id: 7,
-        image: IMG5,
-        title: 'The Tech Talent Academy (TTA) website was developed as part of a team project to showcase the institutions courses, programs, and offerings. Designed with a clean and modern layout, the site provides students and educators with an easy to navigate platform.',
-        github: 'https://github.com/stacodinghackwizard/',
-        demo: 'https://web.tta.ng/',
-    },
-    {
-        id: 8,
-        image: IMG3,
-        title: 'This User Dashboard application was developed as a test interview project to manage user profiles and data. Built using React, the application offers an intuitive interface for users to easily access and interact with their information.',
-        github: 'https://github.com/stacodinghackwizard/subssum',
-        demo: 'https://subssum-beta.vercel.app/dashboard',
-    },
-    {
-        id: 9,
-        image: IMG6,
-        title: 'FoodKart connects local marketers with customers, allowing sellers to register and list products while customers can browse and buy from various vendors. It offers a streamlined, community-driven marketplace for easy buying and selling.',
-        github: 'https://github.com/stacodinghackwizard/',
-        demo: 'https://foodkart-gold.vercel.app/',
-    },
-    {
-        id: 10,
         image: IMG10,
-        title: 'This Event Planner website is designed to streamline event management by allowing users to sell tickets and manage events efficiently. The platform provides an easy-to-use interface for event organizers to list their events, sell tickets, and handle registrations, while attendees can browse events and purchase tickets seamlessly.',
-        github: 'https://github.com/stacodinghackwizard/STATicketpass',
+        title: 'TicketPass - An event planner platform for listing events, selling tickets, and managing registrations with a streamlined organizer and attendee experience.',
+        github: 'https://github.com/Ashymz/ashymz-ticketpass',
         demo: 'https://ticketpass404.vercel.app/',
     },
     {
-        id: 11,
-        image: IMG7,
-        title: 'This personal eCommerce website, built in 2021, was developed for hands-on practice and to showcase my skills in creating online stores. The platform features a user-friendly interface where visitors can browse products, add items to their cart, and complete purchases.',
-        github: 'https://github.com/stacodinghackwizard/TemmiteeCakes',
-        demo: 'https://temmitee-cakes.vercel.app/',
+        id: 8,
+        image: IMG_DASHNDROP,
+        title: 'Dashndrop - A two-sided food delivery app where customers browse restaurants and checkout via wallet or Paystack, while vendors manage listings and orders.',
+        github: '',
+        demo: 'https://www.dashndrop.ng/',
     },
     {
-        id: 12,
-        image: IMG8,
-        title: 'This personal eCommerce website, built in 2021, was developed for hands-on practice and to showcase my skills in creating online stores. The platform features a user-friendly interface where visitors can browse products, add items to their cart, and complete purchases.',
-        github: 'https://github.com/stacodinghackwizard/stamaker-smecommerc',
-        demo: 'https://stamaker-smecommerc.vercel.app/',
+        id: 9,
+        image: IMG_BYAIR,
+        title: 'ByAir - Fly Smarter Across Nigeria',
+        description: `ByAir helps travelers discover and book flights across Nigeria with a clean, mobile-friendly experience built for speed and clarity.
+
+Key features:
+• Search and compare routes across Nigerian airlines
+• Streamlined booking flow with clear pricing
+• Responsive web app optimized for mobile users
+• Fast, modern UI deployed on Vercel`,
+        github: '',
+        demo: 'https://byair.vercel.app/',
     },
-   
-  
-    
+    {
+        id: 10,
+        image: IMG_PROGRESSIVE,
+        title: 'Progressive Partners - Invest. Own. Relax.',
+        description: `Progressive Partners is a real estate platform for verified property search, smart mortgage applications, and flexible payment plans across Nigeria.
+
+Key features:
+• Verified listings with smart search filters by location, price, and amenities
+• AI document and progress verification for safer investments
+• Flexible payment options including milestones and mortgage support
+• Digital paperwork from KYC to payment receipts in one place`,
+        github: '',
+        demo: 'https://progressivepartners.vercel.app/',
+    },
 ]
 
-
 const Portfolio = () => {
+    const [expandedId, setExpandedId] = useState(null)
+    const [isTouchDevice, setIsTouchDevice] = useState(false)
+
+    useEffect(() => {
+        const media = window.matchMedia('(hover: none), (pointer: coarse)')
+        const updateTouch = () => setIsTouchDevice(media.matches)
+        updateTouch()
+        media.addEventListener('change', updateTouch)
+        return () => media.removeEventListener('change', updateTouch)
+    }, [])
+
+    useEffect(() => {
+        if (!isTouchDevice || !expandedId) return undefined
+
+        const handlePointerDown = (event) => {
+            if (!event.target.closest('.portfolio__item-wrapper')) {
+                setExpandedId(null)
+            }
+        }
+
+        document.addEventListener('pointerdown', handlePointerDown)
+        return () => document.removeEventListener('pointerdown', handlePointerDown)
+    }, [expandedId, isTouchDevice])
+
+    const handleCardToggle = (id) => {
+        if (!isTouchDevice) return
+        setExpandedId((current) => (current === id ? null : id))
+    }
+
+    const handleMouseEnter = (id) => {
+        if (isTouchDevice) return
+        setExpandedId(id)
+    }
+
+    const handleMouseLeave = () => {
+        if (isTouchDevice) return
+        setExpandedId(null)
+    }
+
     return (
         <section id='portfolio'>
             <h5>My Recent Projects</h5>
@@ -121,18 +168,70 @@ const Portfolio = () => {
 
             <div className="container portfolio__container">
                 {
-                    data.map(({ id, image, title, github, demo }) => {
+                    data.map(({ id, image, title, description, github, demo }) => {
+                        const isExpanded = expandedId === id
+
                         return (
-                            <article key={id} className='portfolio__item'>
-                                <div className="portfolio__item-image">
-                                    <img src={image} alt={title} />
+                            <div
+                                key={id}
+                                className="portfolio__item-wrapper"
+                                onMouseEnter={() => handleMouseEnter(id)}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <article
+                                    className={`portfolio__item ${isExpanded ? 'portfolio__item--expanded' : ''}`}
+                                    onClick={() => handleCardToggle(id)}
+                                    onKeyDown={(event) => {
+                                        if (!isTouchDevice) return
+                                        if (event.key === 'Enter' || event.key === ' ') {
+                                            event.preventDefault()
+                                            handleCardToggle(id)
+                                        }
+                                    }}
+                                    role={isTouchDevice ? 'button' : undefined}
+                                    tabIndex={isTouchDevice ? 0 : undefined}
+                                    aria-expanded={isExpanded}
+                                >
+                                    <span className="portfolio__item-hint portfolio__item-hint--touch">
+                                        {isExpanded ? 'Tap to collapse' : 'Tap for full details'}
+                                    </span>
+                                    <span className="portfolio__item-hint portfolio__item-hint--hover">
+                                        Hover for full details
+                                    </span>
+
+                                    <div className="portfolio__item-image">
+                                        <img src={image} alt={title} />
+                                    </div>
+                                <div className="portfolio__item-content">
+                                    <h3>{title}</h3>
+                                    {description ? (
+                                        <div className="portfolio__expandable">
+                                            <div className="portfolio__expandable-inner">
+                                                <p className="portfolio__item-desc">{description}</p>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <p className="portfolio__item-desc portfolio__item-desc--placeholder" aria-hidden="true">&nbsp;</p>
+                                    )}
                                 </div>
-                                <h3>{title}</h3>
-                                <div className="portfolio__item-cta">
-                                    <a href={github} className='btn' target='_blank'>Github</a>
-                                    <a href={demo} className='btn btn-primary' target='_blank'>Live Demo</a>
-                                </div>
-                            </article>
+                                    <div
+                                        className="portfolio__item-cta"
+                                        onClick={(event) => event.stopPropagation()}
+                                        onKeyDown={(event) => event.stopPropagation()}
+                                    >
+                                        {
+                                            github
+                                                ? <a href={github} className='btn' target='_blank' rel="noreferrer">Github</a>
+                                                : <span className='btn'>GitHub Private</span>
+                                        }
+                                        {
+                                            demo
+                                                ? <a href={demo} className='btn btn-primary' target='_blank' rel="noreferrer">Live Demo</a>
+                                                : <span className='btn btn-primary'>No Public Demo</span>
+                                        }
+                                    </div>
+                                </article>
+                            </div>
                         )
                     })
                 }

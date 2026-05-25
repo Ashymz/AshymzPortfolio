@@ -5,28 +5,28 @@ import { BsCheckLg } from 'react-icons/bs'
 const Services = () => {
     return (
         <section id='services'>
-            <h5>What I Know</h5>
-            <h2>Learning and Achievement</h2>
+            <h5>What I Offer</h5>
+            <h2>Services</h2>
 
             <div className="container services__containter">
                 {/* start Mô tả chi tiết */}
                 <article className="service">
                     <div className="service__head">
-                        <h3>Information Assurance Learning Path</h3>
+                        <h3>Mobile Development</h3>
                     </div>
                     <ul className='service__list'>
                         <li>
                             <BsCheckLg className='service__list-icon' />
-                            <p>Web Security</p>
+                            <p>Cross-platform app development with Flutter &amp; Dart</p>
                         </li>
                         <li>
                             <BsCheckLg className='service__list-icon' />
-                            <p>API Security</p>
+                            <p>App Store and Google Play Store deployment</p>
                         </li>
                       
                         <li>
                             <BsCheckLg className='service__list-icon' />
-                            <p>Risk Management in Information Systems</p>
+                            <p>Biometric authentication and secure payment integration</p>
                         </li>
                         
                         {/* <li>
@@ -35,7 +35,15 @@ const Services = () => {
                         </li> */}
                         <li>
                             <BsCheckLg className='service__list-icon' />
-                            <p>Ethical Hacking and Offensive Security</p>
+                            <p>Real-time features with Firebase and Supabase</p>
+                        </li>
+                        <li>
+                            <BsCheckLg className='service__list-icon' />
+                            <p>Performance optimization and crash debugging</p>
+                        </li>
+                        <li>
+                            <BsCheckLg className='service__list-icon' />
+                            <p>End-to-end delivery from design handoff to launch</p>
                         </li>
                         {/* <li>
                             <BsCheckLg className='service__list-icon' />
@@ -48,25 +56,29 @@ const Services = () => {
                 {/* start Mô tả chi tiết */}
                 <article className="service">
                     <div className="service__head">
-                        <h3>Achieve</h3>
+                        <h3>Frontend Development</h3>
                     </div>
                     <ul className='service__list'>
                         <li>
                             <BsCheckLg className='service__list-icon' />
-                            <p><b>Web Security </b>Course on Portswigger</p>
+                            <p>Responsive web interfaces with Vue.js and React.js</p>
                         </li>
                         <li>
                             <BsCheckLg className='service__list-icon' />
-                            <p><b>Web Security </b>Course on TryHackMe</p>
+                            <p>Component-based architecture and clean UI implementation</p>
                         </li>
                         <li>
                             <BsCheckLg className='service__list-icon' />
-                            <p><b>API Security </b>Course Certificate on APISEC Academy</p>
+                            <p>API integration and dynamic data rendering</p>
                         </li>
-                     
-                        
-                        
-                        
+                        <li>
+                            <BsCheckLg className='service__list-icon' />
+                            <p>Cross-browser compatibility and performance tuning</p>
+                        </li>
+                        <li>
+                            <BsCheckLg className='service__list-icon' />
+                            <p>Tailwind CSS and Bootstrap for rapid, polished layouts</p>
+                        </li>
                     </ul>
                 </article>
                 {/* End of ui/ux */}
@@ -74,7 +86,7 @@ const Services = () => {
                 {/* Mô tả chi tiết */}
                 <article className="service">
                     <div className="service__head">
-                        <h3>Research Platform</h3>
+                        <h3>Consulting &amp; Mentorship</h3>
                     </div>
                     <ul className='service__list'>
                         {/* <li>
@@ -87,11 +99,23 @@ const Services = () => {
                         </li> */}
                         <li>
                             <BsCheckLg className='service__list-icon' />
-                            <p>Kali Linux</p>
+                            <p>Code reviews and technical guidance for dev teams</p>
                         </li>
                         <li>
                             <BsCheckLg className='service__list-icon' />
-                            <p>Virtual Box</p>
+                            <p>Curriculum design for beginner-to-intermediate developers</p>
+                        </li>
+                        <li>
+                            <BsCheckLg className='service__list-icon' />
+                            <p>Project planning and architecture advice</p>
+                        </li>
+                        <li>
+                            <BsCheckLg className='service__list-icon' />
+                            <p>Helping developers ship their first real-world app</p>
+                        </li>
+                        <li>
+                            <BsCheckLg className='service__list-icon' />
+                            <p>Open to contract and freelance engagements</p>
                         </li>
                         
                     </ul>
