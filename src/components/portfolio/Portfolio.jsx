@@ -3,7 +3,7 @@ import './portfolio.css'
 import IMG0 from '../../assets/moniflowImg.png'
 import IMG_BIZZA from '../../assets/bizza.png'
 import IMG_AVVA from '../../assets/avva.webp'
-import IMG2 from '../../assets/staPortfolio.png'
+import IMG_GENESCOR from '../../assets/genescor.jpg'
 import IMG_EXCELMIND from '../../assets/excelmind.png'
 import IMG_MARINER from '../../assets/mariner.png'
 import IMG_DASHNDROP from '../../assets/dashndrop.png'
@@ -52,7 +52,7 @@ Key features:
     },
     {
         id: 4,
-        image: IMG2,
+        image: IMG_GENESCOR,
         title: 'Genescor - A health consultation app for sickle cell patients enabling online doctor appointments and reducing long hospital queues.',
         github: '',
         demo: '',
@@ -121,6 +121,18 @@ Key features:
     },
 ]
 
+const parseTitle = (title) => {
+    const dashIndex = title.indexOf(' - ')
+    if (dashIndex === -1) {
+        return { name: title, summary: '' }
+    }
+
+    return {
+        name: title.slice(0, dashIndex).trim(),
+        summary: title.slice(dashIndex + 3).trim(),
+    }
+}
+
 const Portfolio = () => {
     const [expandedId, setExpandedId] = useState(null)
     const [isTouchDevice, setIsTouchDevice] = useState(false)
@@ -170,16 +182,18 @@ const Portfolio = () => {
                 {
                     data.map(({ id, image, title, description, github, demo }) => {
                         const isExpanded = expandedId === id
+                        const { name, summary } = parseTitle(title)
+                        const hasBody = Boolean(summary || description)
 
                         return (
                             <div
                                 key={id}
-                                className="portfolio__item-wrapper"
-                                onMouseEnter={() => handleMouseEnter(id)}
-                                onMouseLeave={handleMouseLeave}
+                                className={`portfolio__item-wrapper ${isExpanded ? 'is-expanded' : ''}`}
                             >
                                 <article
                                     className={`portfolio__item ${isExpanded ? 'portfolio__item--expanded' : ''}`}
+                                    onMouseEnter={() => handleMouseEnter(id)}
+                                    onMouseLeave={handleMouseLeave}
                                     onClick={() => handleCardToggle(id)}
                                     onKeyDown={(event) => {
                                         if (!isTouchDevice) return
@@ -203,15 +217,18 @@ const Portfolio = () => {
                                         <img src={image} alt={title} />
                                     </div>
                                 <div className="portfolio__item-content">
-                                    <h3>{title}</h3>
-                                    {description ? (
-                                        <div className="portfolio__expandable">
-                                            <div className="portfolio__expandable-inner">
+                                    <h3>{name}</h3>
+                                    {hasBody ? (
+                                        <div className="portfolio__item-body">
+                                            {summary && (
+                                                <p className="portfolio__item-summary">{summary}</p>
+                                            )}
+                                            {description && (
                                                 <p className="portfolio__item-desc">{description}</p>
-                                            </div>
+                                            )}
                                         </div>
                                     ) : (
-                                        <p className="portfolio__item-desc portfolio__item-desc--placeholder" aria-hidden="true">&nbsp;</p>
+                                        <div className="portfolio__item-spacer" aria-hidden="true" />
                                     )}
                                 </div>
                                     <div

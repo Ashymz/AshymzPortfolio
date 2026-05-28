@@ -3,11 +3,17 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     align-items: start;
+    overflow: visible;
 }
 
 .portfolio__item-wrapper {
     position: relative;
-    height: auto;
+    min-height: 27rem;
+    overflow: visible;
+}
+
+.portfolio__item-wrapper.is-expanded {
+    z-index: 20;
 }
 
 .portfolio__item {
@@ -16,29 +22,26 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 26rem;
+    min-height: 27rem;
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
+    transform: translateY(0) scale(1);
     transition:
-        box-shadow var(--transition-smooth),
-        border-color var(--transition-smooth),
-        min-height var(--transition-smooth);
+        transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1),
+        box-shadow 0.45s ease,
+        border-color 0.35s ease;
 }
 
 .portfolio__item-hint {
-    display: none;
-    font-size: 0.75rem;
-    color: var(--color-primary);
-    margin-bottom: 0;
+    display: block;
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    margin-bottom: 0.65rem;
     flex-shrink: 0;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition:
-        max-height var(--transition-smooth),
-        opacity var(--transition-smooth),
-        margin var(--transition-smooth);
+    letter-spacing: 0.02em;
+    opacity: 0.65;
+    transition: opacity 0.3s ease;
 }
 
 .portfolio__item-hint--hover {
@@ -61,6 +64,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio__item-content {
@@ -68,50 +72,57 @@
     display: flex;
     flex-direction: column;
     min-height: 0;
-    margin-top: 1.2rem;
+    margin-top: 1.1rem;
 }
 
 .portfolio__item h3 {
-    margin: 0 0 0.75rem;
-    font-size: 1rem;
-    line-height: 1.4;
+    margin: 0 0 0.65rem;
+    font-size: 1.05rem;
+    line-height: 1.35;
     flex-shrink: 0;
+    color: var(--color-text);
+}
+
+.portfolio__item-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    max-height: 5.5rem;
+    opacity: 0.88;
+    transition:
+        max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease 0.05s;
+}
+
+.portfolio__item-summary,
+.portfolio__item-desc {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+    white-space: pre-line;
+}
+
+.portfolio__item-summary {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
-
-.portfolio__expandable {
-    flex: 1 1 auto;
-    min-height: 0;
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows var(--transition-smooth);
-}
-
-.portfolio__expandable-inner {
-    overflow: hidden;
-    min-height: 0;
+    margin-bottom: 0.5rem;
+    transition: -webkit-line-clamp 0.35s ease;
 }
 
 .portfolio__item-desc {
-    color: var(--color-muted);
-    font-size: 0.85rem;
-    line-height: 1.45;
-    margin: 0;
-    white-space: pre-line;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    transition: -webkit-line-clamp 0.35s ease;
 }
 
-.portfolio__item-desc--placeholder {
+.portfolio__item-spacer {
     flex: 1 1 auto;
-    min-height: 5rem;
-    visibility: hidden;
-    margin: 0;
+    min-height: 4.5rem;
 }
 
 .portfolio__item-cta {
@@ -122,6 +133,11 @@
     padding-top: 1rem;
     flex-shrink: 0;
     width: 100%;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.35s ease,
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio__item-cta .btn {
@@ -132,44 +148,43 @@
     white-space: nowrap;
 }
 
-/* Expanded: only this card grows — siblings stay put */
+/* Expanded overlays content — does not push other cards down */
 .portfolio__item--expanded {
-    min-height: 26rem;
+    min-height: 27rem;
     height: auto;
-    border-color: rgba(0, 0, 0, 0.2);
-    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.35);
     overflow: visible;
-    z-index: 2;
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.38);
+    box-shadow: 0 1.25rem 2.75rem rgba(0, 0, 0, 0.45);
 }
 
 .portfolio__item--expanded .portfolio__item-hint {
-    max-height: 2rem;
     opacity: 1;
-    margin-bottom: 0.75rem;
 }
 
-.portfolio__item--expanded .portfolio__expandable {
-    grid-template-rows: 1fr;
-    flex: 0 1 auto;
+.portfolio__item--expanded .portfolio__item-image img {
+    transform: scale(1.04);
 }
 
-.portfolio__item--expanded h3 {
-    display: block;
-    -webkit-line-clamp: unset;
-    overflow: visible;
+.portfolio__item--expanded .portfolio__item-body {
+    max-height: 28rem;
+    opacity: 1;
 }
 
+.portfolio__item--expanded .portfolio__item-summary,
 .portfolio__item--expanded .portfolio__item-desc {
     display: block;
     -webkit-line-clamp: unset;
     overflow: visible;
 }
 
-.portfolio__item--expanded .portfolio__item-desc--placeholder {
+.portfolio__item--expanded .portfolio__item-spacer {
     display: none;
+    min-height: 0;
+    flex: 0;
 }
 
-/* Desktop hover hint */
+/* Desktop hover — card expands as overlay so grid rows stay fixed */
 @media (hover: hover) and (pointer: fine) {
     .portfolio__item-hint--hover {
         display: block;
@@ -178,9 +193,21 @@
     .portfolio__item-hint--touch {
         display: none;
     }
+
+    .portfolio__item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        cursor: default;
+    }
+
+    .portfolio__item--expanded {
+        overflow: visible;
+    }
 }
 
-/* Touch devices: tap to expand */
+/* Touch */
 @media (hover: none), (pointer: coarse) {
     .portfolio__item {
         cursor: pointer;
@@ -188,32 +215,60 @@
 
     .portfolio__item-hint--touch {
         display: block;
-        max-height: 2rem;
-        opacity: 0.7;
-        margin-bottom: 0.75rem;
+    }
+
+    .portfolio__item-hint--hover {
+        display: none;
     }
 }
 
-/* ================== Media Queries (Medium Devices ==============*/
+@media (prefers-reduced-motion: reduce) {
+    .portfolio__item,
+    .portfolio__item-image img,
+    .portfolio__item-body,
+    .portfolio__item-cta {
+        transition: none;
+    }
+
+    .portfolio__item--expanded {
+        transform: none;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .portfolio__container {
         grid-template-columns: 1fr 1fr;
         gap: 1.2rem;
     }
 
+    .portfolio__item-wrapper {
+        min-height: 25rem;
+    }
+
     .portfolio__item {
-        min-height: 24rem;
+        min-height: 25rem;
+    }
+
+    .portfolio__item--expanded {
+        min-height: 25rem;
     }
 }
 
-/* ================== Media Queries (Small Devices ==============*/
 @media screen and (max-width: 600px) {
     .portfolio__container {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
 
+    .portfolio__item-wrapper {
+        min-height: auto;
+    }
+
     .portfolio__item {
         min-height: auto;
+    }
+
+    .portfolio__item--expanded {
+        transform: translateY(-6px) scale(1.01);
     }
 }
