@@ -10,6 +10,7 @@ import IMG_DASHNDROP from '../../assets/dashndrop.png'
 import IMG10 from '../../assets/ticketPass.png'
 import IMG_BYAIR from '../../assets/byair.png'
 import IMG_PROGRESSIVE from '../../assets/progressivepartners.jpg'
+import IMG_TRADEAVIATOR from '../../assets/tradeaviator.png'
 
 //Do not use the images in production
 const data = [
@@ -18,7 +19,7 @@ const data = [
         image: IMG0,
         title: 'Monicredit - A full-featured digital banking app with wallet transfers, QR payments, biometric login, airtime purchase and bill payments.',
         github: '',
-        demo: '',
+        demo: 'https://autocredit.ng/',
     },
 
     {
@@ -68,7 +69,7 @@ Key features:
 • Marketplace: list or find gear, parts, boats, jobs, crew, and services
 • Crew messages: chat fast with captains, crew, and businesses`,
         github: '',
-        demo: '',
+        demo: 'https://www.getmarinerapp.com/',
     },
     {
         id: 6,
@@ -118,6 +119,29 @@ Key features:
 • Digital paperwork from KYC to payment receipts in one place`,
         github: '',
         demo: 'https://progressivepartners.vercel.app/',
+    },
+    {
+        id: 11,
+        image: IMG_TRADEAVIATOR,
+        title: 'TradeAviator - The Aura of Money and Bills',
+        description: `Real-Time Crypto Conversion: Instantly swap your Bitcoin, USDT, and other assets for Naira. Our system is built for real-time execution, ensuring your bank alert arrives before you even leave the app.
+
+TradeAviator is your go-to app for seamless gift card trading and convenient utility payments.
+
+Key features:
+• Gift card trading at highly competitive rates
+• Utility bill payments: electricity, DSTV, internet, and more
+• Airtime & data top-up across all networks
+• Cable TV subscriptions, virtual cards, and event tickets
+
+Why TradeAviator?
+• Secure & reliable with bank-level encryption
+• Fast transactions anytime, anywhere
+• 24/7 dedicated customer support`,
+        github: '',
+        demo: 'https://www.usetradeaviator.com/',
+        playStore: 'https://play.google.com/store/apps/details?id=com.tradeaviator',
+        appStore: 'https://apps.apple.com/us/app/tradeaviator-bills-gift-card/id6757800872',
     },
 ]
 
@@ -180,10 +204,11 @@ const Portfolio = () => {
 
             <div className="container portfolio__container">
                 {
-                    data.map(({ id, image, title, description, github, demo }) => {
+                    data.map(({ id, image, title, description, github, demo, playStore, appStore }) => {
                         const isExpanded = expandedId === id
                         const { name, summary } = parseTitle(title)
                         const hasBody = Boolean(summary || description)
+                        const hasStoreLinks = Boolean(playStore || appStore)
 
                         return (
                             <div
@@ -232,20 +257,42 @@ const Portfolio = () => {
                                     )}
                                 </div>
                                     <div
-                                        className="portfolio__item-cta"
+                                        className={`portfolio__item-cta ${hasStoreLinks ? 'portfolio__item-cta--stores' : ''}`}
                                         onClick={(event) => event.stopPropagation()}
                                         onKeyDown={(event) => event.stopPropagation()}
                                     >
-                                        {
-                                            github
-                                                ? <a href={github} className='btn' target='_blank' rel="noreferrer">Github</a>
-                                                : <span className='btn'>GitHub Private</span>
-                                        }
-                                        {
-                                            demo
-                                                ? <a href={demo} className='btn btn-primary' target='_blank' rel="noreferrer">Live Demo</a>
-                                                : <span className='btn btn-primary'>No Public Demo</span>
-                                        }
+                                        {hasStoreLinks ? (
+                                            <>
+                                                {
+                                                    playStore
+                                                        ? <a href={playStore} className='btn' target='_blank' rel="noreferrer">Play Store</a>
+                                                        : <span className='btn'>Play Store</span>
+                                                }
+                                                {
+                                                    appStore
+                                                        ? <a href={appStore} className='btn' target='_blank' rel="noreferrer">App Store</a>
+                                                        : <span className='btn'>App Store</span>
+                                                }
+                                                {
+                                                    demo
+                                                        ? <a href={demo} className='btn btn-primary portfolio__item-cta-wide' target='_blank' rel="noreferrer">Website</a>
+                                                        : <span className='btn btn-primary portfolio__item-cta-wide'>No Website</span>
+                                                }
+                                            </>
+                                        ) : (
+                                            <>
+                                                {
+                                                    github
+                                                        ? <a href={github} className='btn' target='_blank' rel="noreferrer">Github</a>
+                                                        : <span className='btn'>GitHub Private</span>
+                                                }
+                                                {
+                                                    demo
+                                                        ? <a href={demo} className='btn btn-primary' target='_blank' rel="noreferrer">Live Demo</a>
+                                                        : <span className='btn btn-primary'>No Public Demo</span>
+                                                }
+                                            </>
+                                        )}
                                     </div>
                                 </article>
                             </div>

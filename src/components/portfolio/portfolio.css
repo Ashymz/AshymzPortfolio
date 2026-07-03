@@ -1,14 +1,25 @@
+/* Fixed card slot — same height for every project */
+:root {
+    --portfolio-card-height: 26rem;
+}
+
+#portfolio {
+    overflow-x: clip;
+}
+
 .portfolio__container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.35rem;
     align-items: start;
     overflow: visible;
+    padding: 0.25rem 0 1rem;
 }
 
 .portfolio__item-wrapper {
     position: relative;
-    min-height: 27rem;
+    height: var(--portfolio-card-height);
+    min-height: var(--portfolio-card-height);
     overflow: visible;
 }
 
@@ -17,30 +28,31 @@
 }
 
 .portfolio__item {
-    padding: 1.3rem;
-    border-radius: 2rem;
+    padding: 1rem 1.1rem 1.1rem;
+    border-radius: 1.35rem;
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 27rem;
+    height: 100%;
+    min-height: var(--portfolio-card-height);
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
     transform: translateY(0) scale(1);
     transition:
-        transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1),
-        box-shadow 0.45s ease,
+        transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1),
+        box-shadow 0.4s ease,
         border-color 0.35s ease;
 }
 
 .portfolio__item-hint {
     display: block;
-    font-size: 0.72rem;
+    font-size: 0.65rem;
     color: var(--color-muted);
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.55rem;
     flex-shrink: 0;
     letter-spacing: 0.02em;
-    opacity: 0.65;
+    opacity: 0.6;
     transition: opacity 0.3s ease;
 }
 
@@ -53,10 +65,11 @@
 }
 
 .portfolio__item-image {
-    border-radius: 1.5rem;
+    border-radius: 0.9rem;
     overflow: hidden;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     flex-shrink: 0;
+    max-height: 7.5rem;
 }
 
 .portfolio__item-image img {
@@ -64,7 +77,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio__item-content {
@@ -72,12 +85,12 @@
     display: flex;
     flex-direction: column;
     min-height: 0;
-    margin-top: 1.1rem;
+    margin-top: 0.75rem;
 }
 
 .portfolio__item h3 {
-    margin: 0 0 0.65rem;
-    font-size: 1.05rem;
+    margin: 0 0 0.45rem;
+    font-size: 0.92rem;
     line-height: 1.35;
     flex-shrink: 0;
     color: var(--color-text);
@@ -87,17 +100,17 @@
     flex: 1 1 auto;
     min-height: 0;
     overflow: hidden;
-    max-height: 5.5rem;
+    max-height: 4.25rem;
     opacity: 0.88;
     transition:
-        max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.4s ease 0.05s;
+        max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.35s ease 0.05s;
 }
 
 .portfolio__item-summary,
 .portfolio__item-desc {
     color: var(--color-muted);
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     line-height: 1.5;
     margin: 0;
     white-space: pre-line;
@@ -108,54 +121,49 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 0.5rem;
-    transition: -webkit-line-clamp 0.35s ease;
+    margin-bottom: 0.35rem;
 }
 
 .portfolio__item-desc {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    transition: -webkit-line-clamp 0.35s ease;
 }
 
 .portfolio__item-spacer {
     flex: 1 1 auto;
-    min-height: 4.5rem;
+    min-height: 0.5rem;
 }
 
 .portfolio__item-cta {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.6rem;
+    gap: 0.5rem;
     margin-top: auto;
-    padding-top: 1rem;
+    padding-top: 0.65rem;
     flex-shrink: 0;
     width: 100%;
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-        opacity 0.35s ease,
-        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio__item-cta .btn {
     width: 100%;
     text-align: center;
-    font-size: 0.8rem;
-    padding: 0.65rem 0.5rem;
+    font-size: 0.7rem;
+    padding: 0.55rem 0.35rem;
     white-space: nowrap;
 }
 
-/* Expanded overlays content — does not push other cards down */
+.portfolio__item-cta-wide {
+    grid-column: 1 / -1;
+}
+
+/* Expanded — overlay on desktop, in-card scroll on touch */
 .portfolio__item--expanded {
-    min-height: 27rem;
-    height: auto;
-    overflow: visible;
-    transform: translateY(-10px) scale(1.02);
+    overflow: hidden;
+    transform: translateY(-6px) scale(1.01);
     border-color: rgba(255, 255, 255, 0.38);
-    box-shadow: 0 1.25rem 2.75rem rgba(0, 0, 0, 0.45);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
 }
 
 .portfolio__item--expanded .portfolio__item-hint {
@@ -163,12 +171,15 @@
 }
 
 .portfolio__item--expanded .portfolio__item-image img {
-    transform: scale(1.04);
+    transform: scale(1.02);
 }
 
 .portfolio__item--expanded .portfolio__item-body {
-    max-height: 28rem;
+    max-height: 9.5rem;
     opacity: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
 
 .portfolio__item--expanded .portfolio__item-summary,
@@ -184,7 +195,7 @@
     flex: 0;
 }
 
-/* Desktop hover — card expands as overlay so grid rows stay fixed */
+/* Desktop hover — expand as overlay without shifting grid */
 @media (hover: hover) and (pointer: fine) {
     .portfolio__item-hint--hover {
         display: block;
@@ -203,13 +214,22 @@
     }
 
     .portfolio__item--expanded {
-        overflow: visible;
+        height: auto;
+        min-height: var(--portfolio-card-height);
+        max-height: min(38rem, 85vh);
+        overflow: hidden;
+    }
+
+    .portfolio__item--expanded .portfolio__item-body {
+        max-height: 14rem;
+        overflow-y: auto;
     }
 }
 
-/* Touch */
+/* Touch devices */
 @media (hover: none), (pointer: coarse) {
     .portfolio__item {
+        position: relative;
         cursor: pointer;
     }
 
@@ -219,6 +239,11 @@
 
     .portfolio__item-hint--hover {
         display: none;
+    }
+
+    .portfolio__item--expanded {
+        transform: none;
+        box-shadow: var(--color-card-shadow);
     }
 }
 
@@ -235,40 +260,76 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
+/* Tablet — 2 columns, same card height */
+@media screen and (max-width: 1100px) {
     .portfolio__container {
-        grid-template-columns: 1fr 1fr;
-        gap: 1.2rem;
-    }
-
-    .portfolio__item-wrapper {
-        min-height: 25rem;
-    }
-
-    .portfolio__item {
-        min-height: 25rem;
-    }
-
-    .portfolio__item--expanded {
-        min-height: 25rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.15rem;
     }
 }
 
-@media screen and (max-width: 600px) {
+/* Mobile — horizontal swipe row (no vertical stack) */
+@media screen and (max-width: 768px) {
+    #portfolio .container {
+        width: 100%;
+        max-width: 100%;
+    }
+
     .portfolio__container {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 1rem;
+        gap: 0.85rem;
+        padding: 0.25rem 1rem 1.25rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .portfolio__container::-webkit-scrollbar {
+        display: none;
     }
 
     .portfolio__item-wrapper {
-        min-height: auto;
+        flex: 0 0 min(78vw, 17.5rem);
+        scroll-snap-align: start;
+        height: var(--portfolio-card-height);
+        min-height: var(--portfolio-card-height);
     }
 
     .portfolio__item {
-        min-height: auto;
+        position: relative;
+        min-height: var(--portfolio-card-height);
+        height: 100%;
+        padding: 0.9rem 0.95rem 1rem;
+    }
+
+    .portfolio__item-image {
+        max-height: 6.75rem;
+    }
+
+    .portfolio__item h3 {
+        font-size: 0.88rem;
     }
 
     .portfolio__item--expanded {
-        transform: translateY(-6px) scale(1.01);
+        transform: none;
+    }
+
+    .portfolio__item--expanded .portfolio__item-body {
+        max-height: 8rem;
+    }
+
+    .portfolio__item-cta .btn {
+        font-size: 0.66rem;
+        padding: 0.5rem 0.3rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .portfolio__item-wrapper {
+        flex: 0 0 84vw;
     }
 }
