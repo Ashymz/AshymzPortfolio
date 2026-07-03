@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import './portfolio.css'
-import IMG0 from '../../assets/moniflowImg.png'
-import IMG_BIZZA from '../../assets/bizza.png'
-import IMG_AVVA from '../../assets/avva.webp'
+import IMG0 from '../../assets/moniflowImg.jpg'
+import IMG_BIZZA from '../../assets/bizza.jpg'
+import IMG_AVVA from '../../assets/avva.jpg'
 import IMG_GENESCOR from '../../assets/genescor.jpg'
-import IMG_EXCELMIND from '../../assets/excelmind.png'
-import IMG_MARINER from '../../assets/mariner.png'
-import IMG_DASHNDROP from '../../assets/dashndrop.png'
-import IMG10 from '../../assets/ticketPass.png'
-import IMG_BYAIR from '../../assets/byair.png'
+import IMG_EXCELMIND from '../../assets/excelmind.jpg'
+import IMG_MARINER from '../../assets/mariner.jpg'
+import IMG_DASHNDROP from '../../assets/dashndrop.jpg'
+import IMG10 from '../../assets/ticketPass.jpg'
+import IMG_BYAIR from '../../assets/byair.jpg'
 import IMG_PROGRESSIVE from '../../assets/progressivepartners.jpg'
-import IMG_TRADEAVIATOR from '../../assets/tradeaviator.png'
+import IMG_TRADEAVIATOR from '../../assets/tradeaviator.jpg'
 
 //Do not use the images in production
 const data = [
@@ -239,7 +239,7 @@ const Portfolio = () => {
                                     </span>
 
                                     <div className="portfolio__item-image">
-                                        <img src={image} alt={title} />
+                                        <img src={image} alt={title} loading="lazy" decoding="async" />
                                     </div>
                                 <div className="portfolio__item-content">
                                     <h3>{name}</h3>
