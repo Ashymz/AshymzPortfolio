@@ -100,23 +100,46 @@
 }
 
 
-/* ================== Media Queries (Medium Devices ==============*/
-@media screen and (max-width: 600px) {
-    .about__me {
-        width: 65%;
-        margin: 0 auto 3rem;
+/* ================== Media Queries (Small devices) ==============*/
+@media screen and (max-width: 768px) {
+    .about__container {
+        min-width: 0;
+    }
+
+    .about__cards {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
     }
 
     .about__card {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        padding: 1.25rem 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about__me {
+        width: min(65%, 14rem);
+        margin: 0 auto 2.5rem;
     }
 
     .about__content {
-        text-align: center;
+        text-align: left;
+        width: 100%;
+        min-width: 0;
     }
 
     .about__content p {
-        margin: 1.5rem 0
+        margin: 1.5rem 0 1.75rem;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        max-width: 100%;
+        text-align: left;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .about__content .btn {
+        margin: 0 auto;
+        display: block;
     }
 }

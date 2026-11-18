@@ -83,9 +83,23 @@ textarea:focus {
 }
 
 
-/* ================== Media Queries (Medium Devices ==============*/
-@media screen and (max-width: 600px) {
+/* ================== Media Queries (Small devices) ==============*/
+@media screen and (max-width: 768px) {
     .container.contact__container {
-        width: var(--container-width-sm);
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contact__option h5 {
+        font-size: 0.85rem;
+        overflow-wrap: anywhere;
+    }
+
+    input,
+    textarea {
+        padding: 0.95rem 1rem;
+        font-size: 16px;
     }
 }
